@@ -9,9 +9,10 @@ const Products = () => {
                 axios({
                   method: "GET",
                   baseURL: "https://dummyjson.com",
-                  url: "/products?limit=10&skip=10&select=title,price",
+                  url: "/products?limit=10",
                 })
                   .then(({ data }) => {
+                    console.log(data.products);
                     setData(data.products);
                   })
                   .catch((err) => console.dir(err))
