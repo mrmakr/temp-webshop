@@ -19,25 +19,59 @@ const Products = () => {
                   .finally(() => setLoading(false));
             }, [])
         
-            return (  
-              <section>
-                <h1>Fake Shop API response:</h1>
-                {loading && "Loading..."}
-                {!!data && data.length > 0 ? data.map((product) => {
-                    return(
-                      <article key={product.id}>
-                        <h2>name: {product.name}</h2>
-                        <p>id: {product.id}</p>
-                        <p>description: {product.description}</p>
-                        <p>brand: {product.brand}</p>
-                        <p>price: {product.price}</p>
-                        <p>category: {product.category}</p>
-                      </article>
-                    )   
-                  }):(<p>API did not provided any product, try again.</p>)
-                }
-              </section>
-            )
+            return (
+              <div class="container">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                  <h1>Fake Shop API response:</h1>
+                  {loading && "Loading..."}
+                  {!!data && data.length > 0 ? (
+                    data.map((product) => {
+                      return (
+                        <>
+                          <div class="col" key={product.name}>
+                            {/* Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop  */}
+                            <div className="card h-100" key={product.id}>
+                              <img
+                                src={product.thumbnail}
+                                className="card-img-top"
+                                alt="..."
+                              />
+                              <div className="card-body">
+                                <h5 className="card-title">{product.name}</h5>
+                                <p className="card-text">
+                                  {product.description}
+                                </p>
+                              </div>
+                              <ul className="list-group list-group-flush">
+                                <li className="list-group-item">
+                                  {product.price}$
+                                </li>
+                                <li className="list-group-item">
+                                  {product.discount}
+                                </li>
+                                <li className="list-group-item">
+                                  {product.rating}
+                                </li>
+                              </ul>
+                              <div className="card-footer">
+                                <a href="#" className="card-link text-muted">
+                                  <small>Card link</small>
+                                </a>
+                                <a href="#" className="card-link text-muted">
+                                 <small>Another link</small> 
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </>
+                      );
+                    })
+                  ) : (
+                    <p>API did not provided any product, try again.</p>
+                  )}
+                </div>
+              </div>
+            );
         }
 
 
