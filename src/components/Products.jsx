@@ -55,66 +55,61 @@ const Products = () => {
 
 
 
-
-const info = data
-  .filter((product) =>
-    product.name.toLowerCase().includes(input.toLowerCase())
-  )
-  .map((product, index) => <div key={index}>{product.name}</div>);
+// const info = data
+//   .filter((product) =>
+//     product.name.toLowerCase().includes(input.toLowerCase())
+//   )
+//   .map((product, index) => <div key={index}>{product.name}</div>);
 
 const handleChange = (e) => {
   setInput(e.target.value);
 };
 
   return (
-    <div class="container">
+    <div className="container">
       <div className="buttons">
-        <input type="text" onChange={handleChange} />
-        <div>{info}</div>
-        {/* <input type="text" onChange={(event) => handleSearch(event)} /> */}
+      
+        <input type="text" onChange={(event) => handleChange(event)} />
 
-        {/* <button
-          className="btn btn-outline-dark"
-          onClick={() => setFilter(data)}
-        >
-          All
-        </button>
-        <button
-          className="btn btn-outline-dark"
-          onClick={() => filterProduct("laptops")}
-        >
-          laptop
-        </button> */}
+        {/* below should be fixed: key for render! */}
       </div>
-      <div class="row row-cols-1 row-cols-md-3 g-4">
+      <div className="row row-cols-1 row-cols-md-3 g-4">
         {loading && "Loading..."}
         {!!data && data.length > 0 ? (
-          data.map((product) => {
+           data.filter((product) =>
+    product.title.toLowerCase().includes(input.toLowerCase())
+  ).map((product) => {
             return (
               <>
-                <div class="col" key={product.name}>
+                <div className="col" key={product.id}>
                   {/* Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop  */}
-                  <div className="card h-100 border-0" key={product.id}>
+                  <div className="card h-100 border-0">
                     <img
                       src={product.thumbnail}
                       className="card-img-top"
                       alt="..."
                     />
                     <div className="card-body">
-                      <h5 className="card-title">{product.title}</h5>
+                      <div class="d-flex flex-wrap justify-content-between">
+                        <div className="p-0">
+                          <h5 className="card-title">{product.title}</h5>
+                        </div>
+                        <div class="p-0">
+                          <span class="text-end badge text-bg-primary">
+                            Primary
+                          </span>
+                        </div>
+                      </div>
                       <p className="card-text">{product.description}</p>
                       <p className="card-text">{product.name}</p>
                     </div>
                     <ul className="list-group list-group-flush">
                       <li className="list-group-item">
-                        <i className="fa fa-usd me-1"></i>
-                        {product.price}$
-                      </li>
-                      <li className="list-group-item">
-                        <i className="fa fa-tags me-1"></i>
-                        {product.discountPercentage}%
-                      </li>
-                      <li className="list-group-item">
+                        <p className="fw-bolder">
+                          {" "}
+                          <i className="fa fa-usd me-1"></i>
+                          {product.price}
+                        </p>
                         <i className="fa fa-star me-1"></i>
                         {product.rating}
                       </li>

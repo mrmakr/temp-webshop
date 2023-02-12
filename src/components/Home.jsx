@@ -11,8 +11,8 @@ const Home = () => {
         qui reiciendis eligendi ea repudiandae officia nisi, necessitatibus
         culpa deleniti quia corporis? Consectetur eum commodi veniam facilis
         nisi deserunt eius.
-      </p></div>
-      <Products />
+      </p>
+      <Products /></div>
     </>
   );
 };
