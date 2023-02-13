@@ -8,8 +8,8 @@ const Home = () => {
     <>
     <Navbar />
       <div className="container mb-5 mt-3">
-        <h5>welcome to tempstore!</h5>
-        <p className="mb-5">
+        <h5 className="text-dm-mono">welcome to tempstore!</h5>
+        <p className="mb-5 text-dm-mono">
           Browse our stuff below, or use the search function!
         </p>      </div>
 

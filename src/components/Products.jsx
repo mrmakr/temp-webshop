@@ -7,8 +7,6 @@ const Products = () => {
   const [data, setData] = useState(null);
   const [input, setInput] = useState("");
 
-
-
   useEffect(() => {
     setLoading(true);
     axios({
@@ -26,77 +24,83 @@ const Products = () => {
       .finally(() => setLoading(false));
   }, []);
 
-const handleChange = (e) => {
-  setInput(e.target.value);
-};
+  const handleChange = (e) => {
+    setInput(e.target.value);
+  };
 
   return (
     <div className="container">
       <div className="buttons">
-      
-        <input type="text" onChange={(event) => handleChange(event)} className="mb-3" />
+        <input
+          type="text"
+          onChange={(event) => handleChange(event)}
+          className="mb-3"
+        />
 
         {/* below should be fixed: key for render! */}
       </div>
       <div className="row row-cols-1 row-cols-md-3 g-5">
         {loading && "Loading..."}
         {!!data && data.length > 0 ? (
-           data.filter((product) =>
-    product.title.toLowerCase().includes(input.toLowerCase())
-  ).map((product) => {
-            return (
-              <>
-                <div className="col" key={product.id}>
-                  {/* Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop  */}
-                  <div className="card h-100">
-                    <ModalImage
-                      small={product.thumbnail}
-                      large={product.thumbnail}
-                      className="card-img-top"
-                      alt={product.description}
-                    />
-                    <div className="card-body">
-                      <div class="d-flex flex-wrap justify-content-between">
-                        <div className="p-0">
-                          <h5 className="card-title text-agrandir">
-                            {product.title}
-                          </h5>
+          data
+            .filter((product) =>
+              product.title.toLowerCase().includes(input.toLowerCase())
+            )
+            .map((product) => {
+              return (
+                <>
+                  <div className="col" key={product.id}>
+                    {/* Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop  */}
+                    <div className="card h-100">
+                      <ModalImage
+                        small={product.thumbnail}
+                        large={product.thumbnail}
+                        className="card-img-top"
+                        alt={product.description}
+                      />
+                      <div className="card-body">
+                        <div class="d-flex flex-wrap justify-content-between">
+                          <div className="p-0">
+                            <h5 className="card-title text-agrandir">
+                              {product.title}
+                            </h5>
+                          </div>
+                          <div class="p-0">
+                            <span class="text-end text-uppercase text-dm-mono badge text-bg-info">
+                              {product.category}
+                            </span>
+                          </div>
                         </div>
-                        <div class="p-0">
-                          <span class="text-end badge text-bg-info">
-                            {product.category}
-                          </span>
-                        </div>
-                      </div>
-                      <p className="card-text text-dm-mono mt-2">
-                        {product.description}
-                      </p>
-                      <p className="card-text text-dm-mono">{product.name}</p>
-                    </div>
-                    <ul className="list-group list-group-flush border-0">
-                      <li className="list-group-item">
-                        <p className="fw-bolder text-dm-mono">
-                          <i className="fa fa-usd me-1"></i>
-                          {product.price}
+                        <p className="card-text text-dm-mono mt-2">
+                          {product.description}
                         </p>
-                        <p className="text-dm-mono">
-                        <i className="fa fa-star me-1"></i>
-                        {product.rating}</p>
-                      </li>
-                    </ul>
-                    <div className="card-footer text-end">
-                      <a
-                        href="#"
-                        className="text-uppercase card-link text-cyan"
-                      >
-                        <small>add to cart</small>
-                      </a>
+                        <p className="card-text text-dm-mono">{product.name}</p>
+                      </div>
+                      <ul className="list-group list-group-flush border-0">
+                        <li className="list-group-item">
+                          <p className="fw-bolder text-dm-mono">
+                            <i className="fa fa-usd me-1"></i>
+                            {product.price}
+                          </p>
+                          <p className="text-dm-mono">
+                            <i className="fa fa-star me-1"></i>
+                            {product.rating}
+                          </p>
+                        </li>
+                      </ul>
+                      <div className="card-footer text-end">
+                        <a
+                          href="#"
+                          className="text-uppercase card-link text-dark"
+                        >
+                          <small>add to cart</small>
+                        </a>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </>
-            );
-          })
+                </>
+              );
+            })
         ) : (
           <p>API did not provided any product, try again.</p>
         )}
