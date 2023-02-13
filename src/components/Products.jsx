@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ModalImage from "react-modal-image";
+/* eslint-disable jsx-a11y/anchor-is-valid */
 
 const Products = () => {
   const [loading, setLoading] = useState(false);

@@ -1,6 +1,5 @@
 import React from "react";
 import Navbar from "./NavBar";
-import NavLook from "./NavLook";
 import Products from "./Products";
 
 const Home = () => {
