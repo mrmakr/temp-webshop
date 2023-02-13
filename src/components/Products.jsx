@@ -38,7 +38,7 @@ const handleChange = (e) => {
 
         {/* below should be fixed: key for render! */}
       </div>
-      <div className="row row-cols-1 row-cols-md-3 g-4">
+      <div className="row row-cols-1 row-cols-md-3 g-5">
         {loading && "Loading..."}
         {!!data && data.length > 0 ? (
            data.filter((product) =>
@@ -49,10 +49,11 @@ const handleChange = (e) => {
                 <div className="col" key={product.id}>
                   {/* Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop  */}
                   <div className="card h-100">
+                    <img src={product.thumnbnail} className="card-img-top" alt="" />
                     <ModalImage
                       small={product.thumbnail}
                       large={product.thumbnail}
-                      className="card-img-top"
+                      className=""
                       alt={product.description}
                     />
                     <div className="card-body">

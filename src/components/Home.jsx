@@ -9,11 +9,11 @@ const Home = () => {
     <Navbar />
       <div className="container mb-5 mt-3">
         <h5>welcome to tempstore!</h5>
-        <p>
+        <p className="mb-5">
           Browse our stuff below, or use the search function!
-        </p>
+        </p>      </div>
+
         <Products />
-      </div>
     </>
   );
 };
