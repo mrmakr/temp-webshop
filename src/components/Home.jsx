@@ -1,12 +1,12 @@
 import React from "react";
+import Navbar from "./NavBar";
 import NavLook from "./NavLook";
 import Products from "./Products";
 
 const Home = () => {
   return (
     <>
-      <NavLook />
-
+    <Navbar />
       <div className="container mb-5 mt-3">
         <h5>Lorem</h5>
         <p>

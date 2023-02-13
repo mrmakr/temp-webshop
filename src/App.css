@@ -11,8 +11,43 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono&display=swap');
 
 body {
-  font-family: 'DM Mono', monospace !important
+  font-family: 'DM Mono', monospace;
+
 }
 
+.text-dm-mono {
+    font-family: 'DM Mono', monospace;
+}
 
-/* this is baaaaad i knoooow */
+@font-face {
+  font-family: 'DM Mono';
+  src: url('./fonts/DMMono-Medium.woff2') format('woff2'),
+    url('./fonts/DMMono-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DM Mono';
+  src: url('./fonts/DMMono-Regular.woff2') format('woff2'),
+    url('./fonts/DMMono-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Agrandir Grand';
+  src: url('./fonts/Agrandir-GrandHeavy.woff2') format('woff2'),
+    url('./fonts/Agrandir-GrandHeavy.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+.text-agrandir {
+      font-family: 'Agrandir Grand';
+        font-weight: 800;
+        font-style: normal;
+}

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import ModalImage from "react-modal-image";
+
 const Products = () => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(null);
@@ -83,35 +85,40 @@ const handleChange = (e) => {
               <>
                 <div className="col" key={product.id}>
                   {/* Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop  */}
-                  <div className="card h-100 border-0">
-                    <img
-                      src={product.thumbnail}
+                  <div className="card h-100">
+                    <ModalImage
+                      small={product.thumbnail}
+                      large={product.thumbnail}
                       className="card-img-top"
-                      alt="..."
+                      alt={product.description}
                     />
                     <div className="card-body">
                       <div class="d-flex flex-wrap justify-content-between">
                         <div className="p-0">
-                          <h5 className="card-title">{product.title}</h5>
+                          <h5 className="card-title text-agrandir">
+                            {product.title}
+                          </h5>
                         </div>
                         <div class="p-0">
-                          <span class="text-end badge text-bg-primary">
-                            Primary
+                          <span class="text-end badge text-bg-info">
+                            {product.category}
                           </span>
                         </div>
                       </div>
-                      <p className="card-text">{product.description}</p>
-                      <p className="card-text">{product.name}</p>
+                      <p className="card-text text-dm-mono mt-2">
+                        {product.description}
+                      </p>
+                      <p className="card-text text-dm-mono">{product.name}</p>
                     </div>
-                    <ul className="list-group list-group-flush">
+                    <ul className="list-group list-group-flush border-0">
                       <li className="list-group-item">
-                        <p className="fw-bolder">
-                          {" "}
+                        <p className="fw-bolder text-dm-mono">
                           <i className="fa fa-usd me-1"></i>
                           {product.price}
                         </p>
+                        <p className="text-dm-mono">
                         <i className="fa fa-star me-1"></i>
-                        {product.rating}
+                        {product.rating}</p>
                       </li>
                     </ul>
                     <div className="card-footer text-end">
