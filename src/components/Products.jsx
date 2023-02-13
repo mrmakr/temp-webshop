@@ -5,12 +5,7 @@ import ModalImage from "react-modal-image";
 const Products = () => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(null);
-  // const [filter, setFilter] = useState(data);
   const [input, setInput] = useState("");
-
-
-// const [allData, setAllData] = useState([]);
-// const [filteredData, setFilteredData] = useState(allData);
 
 
 
@@ -31,38 +26,6 @@ const Products = () => {
       .finally(() => setLoading(false));
   }, []);
 
-//  const handleSearch = (event) => {
-//    let value = event.target.value.toLowerCase();
-//    let result = [];
-//    console.log(value);
-//    result = allData.filter((data) => {
-//      return data.title.search(value) !== -1;
-//    });
-//    setFilteredData(result);
-//  };
-
-
-
-
-
-
-
-  // const filterProduct = (cat) => {
-  //   const updatedList = data.filter((x) => x.category === cat);
-  //   setFilter(updatedList);
-  // };
-
-
-
-
-
-
-// const info = data
-//   .filter((product) =>
-//     product.name.toLowerCase().includes(input.toLowerCase())
-//   )
-//   .map((product, index) => <div key={index}>{product.name}</div>);
-
 const handleChange = (e) => {
   setInput(e.target.value);
 };
@@ -71,7 +34,7 @@ const handleChange = (e) => {
     <div className="container">
       <div className="buttons">
       
-        <input type="text" onChange={(event) => handleChange(event)} />
+        <input type="text" onChange={(event) => handleChange(event)} className="mb-3" />
 
         {/* below should be fixed: key for render! */}
       </div>
