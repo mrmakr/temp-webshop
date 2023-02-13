@@ -87,7 +87,7 @@ const handleChange = (e) => {
                     <div className="card-footer text-end">
                       <a
                         href="#"
-                        className="text-uppercase card-link text-muted"
+                        className="text-uppercase card-link text-cyan"
                       >
                         <small>add to cart</small>
                       </a>

@@ -8,12 +8,9 @@ const Home = () => {
     <>
     <Navbar />
       <div className="container mb-5 mt-3">
-        <h5>Lorem</h5>
+        <h5>welcome to tempstore!</h5>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi,
-          officiis qui reiciendis eligendi ea repudiandae officia nisi,
-          necessitatibus culpa deleniti quia corporis? Consectetur eum commodi
-          veniam facilis nisi deserunt eius.
+          Browse our stuff below, or use the search function!
         </p>
         <Products />
       </div>
