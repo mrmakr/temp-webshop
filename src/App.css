@@ -53,3 +53,7 @@ body {
 font-family: "Comic Sans MS", "Comic Sans", cursive;  
  color: transparent;
 }
+
+::selection { 
+  color: cyan;
+}
