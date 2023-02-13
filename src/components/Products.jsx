@@ -49,11 +49,10 @@ const handleChange = (e) => {
                 <div className="col" key={product.id}>
                   {/* Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop  */}
                   <div className="card h-100">
-                    <img src={product.thumnbnail} className="card-img-top" alt="" />
                     <ModalImage
                       small={product.thumbnail}
                       large={product.thumbnail}
-                      className=""
+                      className="card-img-top"
                       alt={product.description}
                     />
                     <div className="card-body">
